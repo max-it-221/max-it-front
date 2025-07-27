@@ -7,7 +7,8 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
   standalone: true,
-  imports: [RouterOutlet,RouterLink,RouterLinkActive,MatIconModule,MatIcon]
+  imports: [RouterOutlet,RouterLink,RouterLinkActive,MatIconModule,MatIcon],
+  
 })
 export class LayoutComponent implements OnInit {
 

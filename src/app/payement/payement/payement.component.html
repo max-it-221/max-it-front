@@ -1,0 +1,43 @@
+<div class="p-4 space-y-4">
+    <div class="text-start">
+        <span class="text-2xl font-semibold text-gray-800">Services de Paiement</span>
+        <p class="text-gray-600">Administation suivi des payements</p>
+      </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div class="bg-yellow-50 shadow-md rounded-2xl border border-yellow-200 p-4 flex flex-col items-center hover:shadow-lg cursor-pointer transition-all"
+    (click)="openDialog()">
+      <svg class="w-12 h-12 text-yellow-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+      <span class="text-gray-800 font-medium">Senelec</span>
+    </div>
+
+    <div class="bg-blue-50 shadow-md border border-blue-200 rounded-2xl p-4 flex flex-col items-center hover:shadow-lg cursor-pointer transition-all">
+      <svg class="w-12 h-12 text-blue-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 2C12 2 7 9 7 13a5 5 0 0010 0c0-4-5-11-5-11z" />
+      </svg>
+      <span class="text-gray-800 font-medium">Sen'eau</span>
+    </div>
+
+    <div class="bg-red-50 shadow-md border border-red-200 rounded-2xl p-4 flex flex-col items-center hover:shadow-lg cursor-pointer transition-all">
+      <svg class="w-12 h-12 text-red-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 17a4 4 0 004 4h8a4 4 0 004-4V6H4v11zM16 5V3M8 5V3M4 10h16" />
+      </svg>
+      <span class="text-gray-800 font-medium">BRT</span>
+    </div>
+
+    <div class="bg-green-50 shadow-md border border-green-200 rounded-2xl p-4 flex flex-col items-center hover:shadow-lg cursor-pointer transition-all">
+      <svg class="w-12 h-12 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 10h18M4 15h16l-1.5 5h-13L4 15zm2-5V7a1 1 0 011-1h10a1 1 0 011 1v3" />
+      </svg>
+      <span class="text-gray-800 font-medium">TER</span>
+    </div>
+
+    <!-- Autres cartes à ajouter ici -->
+  </div>
+</div>

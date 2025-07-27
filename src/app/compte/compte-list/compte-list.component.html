@@ -1,1 +1,65 @@
-<p>compte-list works!</p>
+<div class="w-full p-4">
+  <div class="flex flex-col w-full space-y-6">
+    <div
+      class="flex flex-col bg-card shadow-xl px-4 py-2 rounded-xl border-t md:flex-row space-y-4 md:space-y-0 md:justify-between"
+    >
+      <div class="text-start">
+        <span class="text-2xl font-bold text-gray-800"
+          >Gestion des comptes</span
+        >
+        <p class="text-gray-600">Administation suivi des comptes</p>
+      </div>
+      <div class="flex items-center md:space-x-4 space-x-0 justify-between">
+        <button
+          class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition"
+          (click)="ajouterCompte()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 4v16m8-8H4"
+            />
+          </svg>
+          Ajouter
+        </button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="overflow-x-auto bg-white rounded-xl shadow-md">
+      <table class="min-w-full table-auto">
+        <thead class="bg-gray-100 text-gray-700 text-sm font-semibold">
+          <tr>
+            <th class="px-4 py-3 text-left">Prénom</th>
+            <th class="px-4 py-3 text-left">Nom</th>
+            <th class="px-4 py-3 text-left">CNI</th>
+            <th class="px-4 py-3 text-left">Téléphone</th>
+            <th class="px-4 py-3 text-left">Date d'Ouverture</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm text-gray-800 divide-y">
+          @for (compte of comptes; track $index) {
+          <tr>
+            <td class="px-4 py-3">{{ compte.prenom }}</td>
+            <td class="px-4 py-3">{{ compte.nom }}</td>
+            <td class="px-4 py-3">{{ compte.cni }}</td>
+            <td class="px-4 py-3">{{ compte.telephone }}</td>
+            <td class="px-4 py-3">
+              {{ compte.dateOuverture | date : "dd-MM-yyyy" }}
+            </td>
+          </tr>
+
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

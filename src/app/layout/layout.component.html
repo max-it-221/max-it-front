@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gray-100 flex">
+<div class="min-h-screen flex">
   <div class="w-64 bg-white shadow-lg rounded-lg border-r flex-shrink-0">
     <div class="px-8 py-4 border-b border-gray-200 shadow-lg">
       <div class="flex items-center">
@@ -28,13 +28,24 @@
           routerLinkActive="text-blue-700 font-semibold bg-blue-50"
         >
           <span class="mb-2">
-            <mat-icon svgIcon="heroicons_outline:home"></mat-icon>
+            <svg
+              class="w-8 h-8 text-gray-700"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2V7z"
+              ></path>
+            </svg>
           </span>
           <span class="font-medium">Accueil</span>
         </div>
       </div>
 
-      
       <div class="px-6 mb-2">
         <div
           class="flex flex-col items-center justify-center text-center p-4 hover:bg-gray-100 rounded-lg cursor-pointer transition-colors duration-200"
@@ -49,18 +60,55 @@
           <span class="font-medium">Comptes</span>
         </div>
       </div>
-<div class="px-6 mb-2">
+      <div class="px-6 mb-2">
         <div
           class="flex flex-col items-center justify-center text-center p-4 hover:bg-gray-100 rounded-lg cursor-pointer transition-colors duration-200"
           [routerLink]="['transactions']"
           routerLinkActive="text-blue-700 font-semibold bg-blue-50"
         >
-        <mat-icon svgIcon="heroicons_outline:arrows-right-left"></mat-icon>
-          <span class="mb-2">
-          </span>
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
+            ></path>
+          </svg>
+          <span class="mb-2"> </span>
           <span class="font-medium">Transactions</span>
         </div>
       </div>
+      <div class="px-6 mb-2">
+        <div
+          class="flex flex-col items-center justify-center text-center p-4 hover:bg-gray-100 rounded-lg cursor-pointer transition-colors duration-200"
+          [routerLink]="['payements']"
+          routerLinkActive="text-blue-700 font-semibold bg-blue-50"
+        >
+          <!-- Icône de carte de paiement -->
+          <svg
+            class="w-8 h-8 text-gray-700"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 5h18a2 2 0 012 2v3H1V7a2 2 0 012-2zm0 7h18v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5zm3 4h2m4 0h6"
+            />
+          </svg>
+
+          <span class="mt-2 font-medium">Achats / Paiements</span>
+        </div>
+      </div>
+
       <div class="px-6 mb-2">
         <div
           class="flex flex-col justify-center p-3 text-gray-700 hover:bg-gray-100 rounded-lg cursor-pointer transition-colors duration-200"
@@ -90,7 +138,7 @@
   </div>
   <div class="flex-1">
     <!-- Top Navbar -->
-    <header class="bg-white shadow-sm border-b border-gray-200">
+    <header class="bg-white shadow-sm ">
       <div class="p-4">
         <div
           class="flex items-center justify-between shadow-lg border-t rounded-lg p-2"
@@ -138,7 +186,7 @@
         </div>
       </div>
     </header>
-    <main class="flex-1 px-4">
+    <main>
       <router-outlet></router-outlet>
     </main>
   </div>

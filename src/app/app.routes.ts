@@ -21,6 +21,11 @@ export const routes: Routes = [
           import('./transaction/transaction-routing')
       },
       {
+        path: 'payements',
+        loadChildren: () =>
+          import('./payement/payement-routing')
+      },
+      {
         path: 'journale-demandes',
         loadChildren: () =>
           import(
