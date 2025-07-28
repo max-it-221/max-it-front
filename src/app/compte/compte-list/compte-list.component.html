@@ -1,17 +1,17 @@
-<div class="w-full p-4">
-  <div class="flex flex-col w-full space-y-6">
+<div class="w-full">
+  <div class="flex flex-col p-4 w-full">
     <div
-      class="flex flex-col bg-card shadow-xl px-4 py-2 rounded-xl border-t md:flex-row space-y-4 md:space-y-0 md:justify-between"
+      class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:justify-between"
     >
       <div class="text-start">
-        <span class="text-2xl font-bold text-gray-800"
+        <span class="text-xl font-semibold "
           >Gestion des comptes</span
         >
         <p class="text-gray-600">Administation suivi des comptes</p>
       </div>
       <div class="flex items-center md:space-x-4 space-x-0 justify-between">
         <button
-          class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition"
+          class="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700 transition"
           (click)="ajouterCompte()"
         >
           <svg
@@ -36,7 +36,7 @@
     <!-- Table -->
     <div class="overflow-x-auto bg-white rounded-xl shadow-md">
       <table class="min-w-full table-auto">
-        <thead class="bg-gray-100 text-gray-700 text-sm font-semibold">
+        <thead class="bg-green-100 text-gray-700 text-sm font-semibold">
           <tr>
             <th class="px-4 py-3 text-left">Prénom</th>
             <th class="px-4 py-3 text-left">Nom</th>
