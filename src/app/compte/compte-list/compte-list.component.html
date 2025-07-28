@@ -1,13 +1,9 @@
 <div class="w-full">
-  <div class="flex flex-col p-4 w-full">
-    <div
-      class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:justify-between"
-    >
+  <div class="flex flex-col p-4 space-y-6 w-full">
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:justify-between">
       <div class="text-start">
-        <span class="text-xl font-semibold "
-          >Gestion des comptes</span
-        >
-        <p class="text-gray-600">Administation suivi des comptes</p>
+        <span class="text-xl font-semibold">Gestion des comptes</span>
+        <p class="text-gray-600">Administration suivi des comptes</p>
       </div>
       <div class="flex items-center md:space-x-4 space-x-0 justify-between">
         <button
@@ -43,6 +39,9 @@
             <th class="px-4 py-3 text-left">CNI</th>
             <th class="px-4 py-3 text-left">Téléphone</th>
             <th class="px-4 py-3 text-left">Date d'Ouverture</th>
+            <th class="px-4 py-3 text-left">Statut</th>
+            <th class="px-4 py-3 text-left">Bloque / Débloque</th>
+            <th class="px-4 py-3 text-left">Voir détaille</th>
           </tr>
         </thead>
         <tbody class="text-sm text-gray-800 divide-y">
@@ -55,8 +54,28 @@
             <td class="px-4 py-3">
               {{ compte.dateOuverture | date : "dd-MM-yyyy" }}
             </td>
+            <td class="px-4 py-3">
+              <span [class.text-green-600]="!compte.estBloque" [class.text-red-600]="compte.estBloque" class="font-medium">
+                {{ compte.estBloque ? 'Bloqué' : 'Actif' }}
+              </span>
+            </td>
+            <td class="px-4 py-3">
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" (change)="toggleBloque(compte)">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+              </label>
+            </td>
+            <td class="px-4 py-3" (click)="voirDetail(compte)">
+              <svg xmlns="http://www.w3.org/2000/svg" 
+              height="24px" 
+              viewBox="0 -960 960 960" 
+              width="24px"
+              fill="currentColor" 
+              class="text-green-600 cursor-pointer">
+              <path d="M240-40H120q-33 0-56.5-23.5T40-120v-120h80v120h120v80Zm480 0v-80h120v-120h80v120q0 33-23.5 56.5T840-40H720ZM480-220q-120 0-217.5-71T120-480q45-118 142.5-189T480-740q120 0 217.5 71T840-480q-45 118-142.5 189T480-220Zm0-80q88 0 161-48t112-132q-39-84-112-132t-161-48q-88 0-161 48T207-480q39 84 112 132t161 48Zm0-40q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41Zm0-80q-25 0-42.5-17.5T420-480q0-25 17.5-42.5T480-540q25 0 42.5 17.5T540-480q0 25-17.5 42.5T480-420ZM40-720v-120q0-33 23.5-56.5T120-920h120v80H120v120H40Zm800 0v-120H720v-80h120q33 0 56.5 23.5T920-840v120h-80ZM480-480Z"/></svg>
+              
+            </td>
           </tr>
-
           }
         </tbody>
       </table>
