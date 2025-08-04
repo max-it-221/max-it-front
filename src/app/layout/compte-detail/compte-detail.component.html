@@ -1,0 +1,50 @@
+<div class="container mx-auto p-6 font-sans max-w-4xl space-y-6">
+
+  <!-- Header - Détails du compte -->
+  <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-orange-500">
+    <h1 class="text-3xl font-bold mb-6 text-orange-600">Détails du compte</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-800 text-base">
+      <div><strong>Nom :</strong> Fatou</div>
+      <div><strong>Prénom :</strong> Sarr</div>
+      <div><strong>Téléphone :</strong> +221 77 123 45 67</div>
+      <div><strong>NCI :</strong> CPT001</div>
+      <div><strong>Date d'ouverture :</strong> 01/03/2025</div>
+      <div>
+        <strong>Statut :</strong>
+        <span class="font-semibold px-2 py-1 rounded-full text-white"
+        >
+         
+        </span>
+      </div>
+    </div>
+
+    <!-- Images -->
+    <div class="mt-6">
+      <h2 class="font-semibold text-lg mb-3 text-orange-500">Pièces jointes</h2>
+      <div class="flex gap-4 flex-wrap">
+        <!-- <img *ngFor="let img of compte.images" [src]="img.url" alt="Image" class="w-28 h-28 object-cover rounded shadow" /> -->
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <!-- Achats -->
+  <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-orange-500">
+    <h2 class="text-2xl font-bold mb-4 text-orange-600">Historique des Achats</h2>
+    <table class="w-full border-collapse border border-gray-200 text-sm">
+      <thead class="bg-orange-100 text-gray-700">
+        <tr>
+          <th class="p-3 border border-gray-300">Date</th>
+          <th class="p-3 border border-gray-300">Référence</th>
+          <th class="p-3 border border-gray-300">KW</th>
+          <th class="p-3 border border-gray-300">Montant</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+      </tbody>
+    </table>
+  </div>
+</div>

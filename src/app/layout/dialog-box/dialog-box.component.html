@@ -1,0 +1,34 @@
+<div class="flex justify-end">
+  <button mat-icon-button (click)="dialogRef.close()">
+    <mat-icon fontIcon="close"></mat-icon>
+  </button>
+</div>
+
+<h2 mat-dialog-title class="text-center text-2xl font-semibold text-gray-800 mb-2">
+  Annulation Transfert
+</h2>
+
+<mat-dialog-content class="px-6 py-2 max-h-[70vh] overflow-y-auto"> ">
+  <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
+     <!-- <div class="font-semibold">Référence :</div>
+    <div>{{ data.compte.nom }}</div> -->
+    <div class="font-semibold">Référence :</div>
+    <div>{{ data.reference }}</div>
+
+    <div class="font-semibold">Montant :</div>
+    <div>{{ data.montant }}</div>
+
+    <div class="font-semibold">Type :</div>
+    <div>{{ data.type }}</div>
+
+    <div class="font-semibold">Date :</div>
+    <div>{{ data.date }}</div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="px-6 py-4">
+  <button mat-raised-button color="primary" (click)="dialogRef.close(true)"
+    class="bg-orange-600 text-white hover:bg-orange-700 rounded px-4 py-2">
+    Confirmer l'annulation
+  </button>
+</mat-dialog-actions>

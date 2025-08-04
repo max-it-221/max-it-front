@@ -1,0 +1,137 @@
+<div class="w-full">
+  <div class="flex flex-col p-4 space-y-6 w-full">
+
+      <h3 class="text-sm font-medium text-gray-800">Liste des comptes</h3>
+
+
+    <!-- Barre de recherche + bouton ajouter -->
+    <div class="flex flex-wrap md:flex-nowrap items-center justify-between gap-4">
+      <input type="text" placeholder="Rechercher par CNI"
+        class="flex-1 md:w-64 px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-600" />
+      <input type="text" placeholder="Rechercher par téléphone"
+        class="flex-1 md:w-64 px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-600" />
+      <a [routerLink]="['/layout/ajouter-compte']"
+        class="flex items-center justify-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-xl hover:bg-orange-700 transition w-full md:w-auto">
+        Ajouter
+      </a>
+    </div>
+
+    <!-- Tableau des comptes -->
+    <div class="overflow-x-auto">
+     <table class="min-w-full table-fixed bg-white shadow rounded-lg overflow-hidden">
+        <thead class="bg-orange-100 text-orange-700 text-left">
+          <tr>
+            <th class="px-4 py-3 w-20 whitespace-nowrap">Photo</th>
+            <th class="px-4 py-3 w-40 whitespace-nowrap">Client</th>
+            <th class="px-4 py-3 w-32 whitespace-nowrap">CNI</th>
+            <th class="px-4 py-3 w-32 whitespace-nowrap">Téléphone</th>
+            <th class="px-4 py-3 w-32 whitespace-nowrap">Statut</th>
+            <th class="px-4 py-3 w-48 whitespace-nowrap">Action</th>
+          </tr>
+        </thead>
+        @for(comptes of comptes();track comptes.id) {
+
+        <tbody class="divide-y divide-gray-200 text-sm text-gray-700">
+          <!-- <tr *ngFor="let comptes of comptes; trackBy: comptes.id" class="hover:bg-gray-50"> -->
+          <td class="px-4 py-3 align-middle">
+            <img src="https://via.placeholder.com/40" alt="Client" class="w-10 h-10 rounded-full object-cover" />
+          </td>
+          <td class="px-4 py-3 align-middle">{{ comptes.nom }} {{ comptes.prenom }}</td>
+          <td class="px-4 py-3 align-middle">{{ comptes.nci }}</td>
+          <td class="px-4 py-3 align-middle">{{ comptes.telephone }}</td>
+          <td class="px-4 py-3 align-middle">
+            <span [ngClass]="{
+                  'bg-gray-500 text-white': comptes.statut === 'Bloque',
+                  'bg-orange-500 text-white': comptes.statut === 'Actif'
+                }" class="px-3 py-1 rounded-full text-sm font-semibold">
+              {{ comptes.statut }}
+            </span>
+          </td>
+          <td class="px-4 py-3">
+            <div class="flex flex-wrap gap-2">
+
+      <!-- voir plus  -->
+              <span [routerLink]="['/layout/compte-detail', comptes.id]">
+                <svg  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                  fill="#1f1f1f">
+                  <path
+                    d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z" />
+                </svg>
+              </span>
+              <!-- transaction -->
+              <span [routerLink]="['/layout/transactions', comptes.id]">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" stroke="currentColor" viewBox="0 -960 960 960"
+                  width="24px" fill="#1f1f1f">
+                  <path
+                    d="M280-160 80-360l200-200 56 57-103 103h287v80H233l103 103-56 57Zm400-240-56-57 103-103H440v-80h287L624-743l56-57 200 200-200 200Z" />
+                </svg>
+              </span>
+
+
+                 <!-- bloquer -->
+              <span class="">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="red">
+                  <path
+                    d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q54 0 104-17.5t92-50.5L228-676q-33 42-50.5 92T160-480q0 134 93 227t227 93Zm252-124q33-42 50.5-92T800-480q0-134-93-227t-227-93q-54 0-104 17.5T284-732l448 448Z" />
+                </svg>
+              </span>
+            </div>
+          </td>
+          <!-- </tr> -->
+        </tbody>
+        }
+      </table>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-between  px-4 py-3 sm:px-6">
+      <div class="flex flex-1 justify-between sm:hidden">
+        <a href="#"
+          class="relative inline-flex items-center rounded-md border border-orange-400 bg-white px-4 py-2 text-sm font-medium text-orange-600 hover:bg-orange-100">
+          Previous
+        </a>
+        <a href="#"
+          class="relative ml-3 inline-flex items-center rounded-md border border-orange-400 bg-white px-4 py-2 text-sm font-medium text-orange-600 hover:bg-orange-100">
+          Next
+        </a>
+      </div>
+      <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+        <p class="text-sm text-orange-600">
+          <span class="font-semibold"></span> <span class="font-semibold"></span> <span class="font-semibold"></span>
+        </p>
+        <nav aria-label="Pagination" class="isolate inline-flex -space-x-px rounded-md shadow-sm">
+          <a href="#"
+            class="relative inline-flex items-center rounded-l-md px-2 py-2 text-orange-400 ring-1 ring-orange-400 ring-inset hover:bg-orange-100 focus:z-20 focus:outline-offset-0">
+            <span class="sr-only">Previous</span>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-5 h-5">
+              <path
+                d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                clip-rule="evenodd" fill-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="#" aria-current="page"
+            class="relative z-10 inline-flex items-center bg-orange-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus:outline-2 focus:outline-offset-2 focus:outline-orange-600">
+            1
+          </a>
+          <span
+            class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-orange-600 ring-1 ring-orange-400 ring-inset focus:outline-offset-0">...</span>
+          <a href="#"
+            class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-orange-700 ring-1 ring-orange-400 ring-inset hover:bg-orange-100 focus:z-20 focus:outline-offset-0">
+            10
+          </a>
+          <a href="#"
+            class="relative inline-flex items-center rounded-r-md px-2 py-2 text-orange-400 ring-1 ring-orange-400 ring-inset hover:bg-orange-100 focus:z-20 focus:outline-offset-0">
+            <span class="sr-only">Next</span>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-5 h-5">
+              <path
+                d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+</div>

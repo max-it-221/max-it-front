@@ -1,0 +1,45 @@
+<!-- Actions -->
+<section class="bg-white rounded-xl p-6 shadow-lg border border-orange-100 mb-8">
+  <div class="flex flex-wrap justify-center gap-4">
+    <button class="bg-orange-400 hover:bg-orange-500 text-white px-6 py-3 rounded-lg shadow transition-all duration-200">
+      💰 Faire un dépôt
+    </button>
+    <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg shadow transition-all duration-200">
+      🏧 Faire un retrait
+    </button>
+    <button class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg shadow transition-all duration-200">
+      🛍️ Faire un achat
+    </button>
+    <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg shadow transition-all duration-200">
+      🔒 Bloquer le compte
+    </button>
+  </div>
+</section>
+
+<!-- Historique des Transactions -->
+<section class="bg-white rounded-xl shadow-md p-6 border-l-4 border-orange-400">
+  <h2 class="text-2xl font-bold text-orange-600 mb-4">Historique des Transactions</h2>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-200 text-sm">
+      <thead class="bg-orange-100 text-gray-700">
+        <tr>
+          <th class="p-3 border border-gray-300 text-left">Date</th>
+          <th class="p-3 border border-gray-300 text-left">Type</th>
+          <th class="p-3 border border-gray-300 text-left">Montant</th>
+          <th class="p-3 border border-gray-300 text-left">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Exemple de ligne de transaction -->
+        <tr class="hover:bg-orange-50">
+          <td class="p-3 border border-gray-300">03/08/2025</td>
+          <td class="p-3 border border-gray-300">Dépôt</td>
+          <td class="p-3 border border-gray-300">10 000 FCFA</td>
+          <td class="p-3 border border-gray-300">Dépôt initial</td>
+        </tr>
+        <!-- D'autres lignes peuvent être ajoutées dynamiquement -->
+      </tbody>
+    </table>
+  </div>
+</section>

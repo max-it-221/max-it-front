@@ -1,37 +1,86 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { CompteListComponent } from './layout/compte-list/compte-list.component';
+import { LoginComponent } from './securite/login/login.component';
+import { SecuriteComponent } from './securite/securite.component';
+import { ListeDemandeAnnulationTransfereComponent } from './layout/liste-demande-annulation-transfere/liste-demande-annulation-transfere.component';
+
+import { AjoutCompteComponent } from './layout/ajout-compte/ajout-compte.component';
+import { CompteDetailComponent } from './layout/compte-detail/compte-detail.component';
+import { JournaleDemandeListComponent } from './layout/journale-demande-list/journale-demande-list.component';
+import { Transaction } from './model/transaction';
+import { TransactionListComponent } from './layout/transaction-list/transaction-list.component';
+
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/accueil' },
+  { path: '', pathMatch: 'full', redirectTo: 'securite/login' },
   {
-    path: '',
+    path: 'layout',
     component: LayoutComponent,
-    children: [
-      {
-        path: 'accueil',
-        loadComponent: () => import('../app/accueil/accueil.component').then(m => m.AccueilComponent),
-      },
+    children:
+     [
+     
       {
         path: 'comptes',
-        loadChildren: () => import('../app/compte/compte-routing'),
+        component:CompteListComponent,
       },
+
       {
-        path: 'transactions',
-        loadChildren: () =>
-          import('./transaction/transaction-routing')
+        path: 'compte-detail/:compteId',
+        component:CompteDetailComponent
       },
+    {
+      path: 'demande-annulation-transfere',
+      component: ListeDemandeAnnulationTransfereComponent
+    },
+
+      
+           {
+      path: 'ajouter-compte',
+      component: AjoutCompteComponent
+    },
+
+
+    
+    {
+      path: 'journalsDemandeListe',
+      component: JournaleDemandeListComponent    
+    },
+    {
+      path: 'transactions/:compteId',
+      component:TransactionListComponent
+    },
+      
+    
+
+  ] ,
+  },
+  
+  {
+    path: 'securite',
+    component:SecuriteComponent,
+    children: 
+    [
       {
-        path: 'payements',
-        loadChildren: () =>
-          import('./payement/payement-routing')
+        path: 'login',
+        component: LoginComponent,
       },
-      {
-        path: 'journale-demandes',
-        loadChildren: () =>
-          import(
-            './journale-demande/journale-demande-routing'
-          )
+  {
+        path:'',
+        redirectTo: 'login',
+        pathMatch: 'full'
       },
+
+
     ],
   },
+  
+       {
+        path: '**',
+       component:NotFoundPageComponent
+      },
+     
+
+    
 ];

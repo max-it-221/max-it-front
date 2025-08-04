@@ -1,0 +1,96 @@
+<div class="p-6">
+  <!-- <h1 class="text-2xl font-bold mb-4">Liste des demandes de transfert</h1> -->
+
+
+  <div>
+    <!-- <h2 class="text-base font-normal  text-gray-800">Listes ddes dedemande-annulation-transfere</h2> -->
+    <h2 class="text-sm font-medium text-gray-800"> demandes d'annulation </h2>
+
+  </div>
+  <div class="w-48 flex  gap-2 ">
+    <input type="text" placeholder="Reference"
+      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4" />
+    <button class="bg-orange-500 w-20 h-10 rounded-lg ">ok</button>
+  </div>
+
+  <table class="min-w-full bg-white shadow rounded-lg overflow-hidden">
+    
+    <thead class="bg-orange-100 text-orange-700 ">
+      <tr>
+        <th class="px-6 py-3 text-left">Référence</th>
+        <th class="px-6 py-3 text-left">Date</th>
+        <th class="px-6 py-3 text-left">Montant</th>
+        <!-- <th class="px-6 py-3 text-left">Type</th> -->
+        <th class="px-6 py-3 text-left">Actions</th>
+      </tr>
+    </thead>
+    @for( demande of  demande(); track demande.id){
+
+   
+    <tbody class="divide-y divide-gray-100">
+      <tr class="hover:bg-gray-50">
+        <td class="px-6 py-4">{{demande.reference}}</td>
+        <td class="px-6 py-4">{{demande.date}}</td>
+        <td class="px-6 py-4">{{demande.montant}}t</td>
+        <td class="px-6 py-4">
+      <button  (click)="openDialog(demande)" class="flex h-10 items-center gap-1 px-3 py-1  bg-gray-200 text-black rounded-xl hover:bg-orange-600">
+            <span class="text-gray-600 font-bold text-xl">•</span>
+            <span> valider </span>
+      </button>
+        </td>
+      </tr>
+      <!-- Tu peux dupliquer ce bloc <tr> pour chaque demande -->
+    </tbody>
+     }
+  </table>
+
+  <!-- Pagination -->
+  <div class="flex items-center justify-between border-t border-orange-300 bg-white px-4 py-3 sm:px-6">
+    <div class="flex flex-1 justify-between sm:hidden">
+      <a href="#"
+        class="relative inline-flex items-center rounded-md border border-orange-400 bg-white px-4 py-2 text-sm font-medium text-orange-600 hover:bg-orange-100">
+        Previous
+      </a>
+      <a href="#"
+        class="relative ml-3 inline-flex items-center rounded-md border border-orange-400 bg-white px-4 py-2 text-sm font-medium text-orange-600 hover:bg-orange-100">
+        Next
+      </a>
+    </div>
+    <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+      <p class="text-sm text-orange-600">
+        <span class="font-semibold"></span> <span class="font-semibold"></span> <span class="font-semibold"></span>
+      </p>
+      <nav aria-label="Pagination" class="isolate inline-flex -space-x-px rounded-md shadow-sm">
+        <a href="#"
+          class="relative inline-flex items-center rounded-l-md px-2 py-2 text-orange-400 ring-1 ring-orange-400 ring-inset hover:bg-orange-100 focus:z-20 focus:outline-offset-0">
+          <span class="sr-only">Previous</span>
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-5 h-5">
+            <path
+              d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+              clip-rule="evenodd" fill-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="#" aria-current="page"
+          class="relative z-10 inline-flex items-center bg-orange-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus:outline-2 focus:outline-offset-2 focus:outline-orange-600">
+          1
+        </a>
+        <span
+          class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-orange-600 ring-1 ring-orange-400 ring-inset focus:outline-offset-0">...</span>
+        <a href="#"
+          class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-orange-700 ring-1 ring-orange-400 ring-inset hover:bg-orange-100 focus:z-20 focus:outline-offset-0">
+          10
+        </a>
+        <a href="#"
+          class="relative inline-flex items-center rounded-r-md px-2 py-2 text-orange-400 ring-1 ring-orange-400 ring-inset hover:bg-orange-100 focus:z-20 focus:outline-offset-0">
+          <span class="sr-only">Next</span>
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-5 h-5">
+            <path
+              d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+              clip-rule="evenodd" fill-rule="evenodd" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+</div>
