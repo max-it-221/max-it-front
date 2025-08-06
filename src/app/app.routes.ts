@@ -29,7 +29,7 @@ export const routes: Routes = [
         path: 'journale-demandes',
         loadChildren: () =>
           import(
-            './journale-demande/journale-demande-routing'
+            './journal-demande/journale-demande-routing'
           )
       },
     ],
