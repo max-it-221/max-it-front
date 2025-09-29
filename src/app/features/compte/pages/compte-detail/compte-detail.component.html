@@ -1,0 +1,62 @@
+<div class="compte-detail-container">
+    <!-- User Info -->
+    <section class="user-info">
+        <h2>Informations de l'utilisateur</h2>
+        <div>
+            <label>Nom:</label>
+            <span>{{ user.nom }}</span>
+        </div>
+        <div>
+            <label>Email:</label>
+            <span>{{ user.email }}</span>
+        </div>
+        <div>
+            <label>Téléphone:</label>
+            <span>{{ user.telephone }}</span>
+        </div>
+    </section>
+
+    <!-- Compte Info -->
+    <section class="compte-info">
+        <h2>Informations du compte</h2>
+        <div>
+            <label>Numéro de compte:</label>
+            <span>{{ compte.numero }}</span>
+        </div>
+        <div>
+            <label>Solde:</label>
+            <span>{{ compte.solde | currency:'EUR' }}</span>
+        </div>
+        <div>
+            <label>Type de compte:</label>
+            <span>{{ compte.type }}</span>
+        </div>
+        <div>
+            <label>Date de création:</label>
+            <span>{{ compte.dateCreation | date:'' }}</span>
+        </div>
+    </section>
+
+    <!-- Liste des transactions -->
+    <section class="transactions-list">
+        <h2>Liste des transactions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Montant</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of transactions">
+                    <td>{{ transaction.date | date:'short' }}</td>
+                    <td>{{ transaction.description }}</td>
+                    <td>{{ transaction.montant | currency:'EUR' }}</td>
+                    <td>{{ transaction.type }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>

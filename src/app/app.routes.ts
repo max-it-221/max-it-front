@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { LayoutComponent } from './layout/layout.component';
+import { LayoutComponent } from './layouts/layout/layout.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/accueil' },
@@ -9,27 +9,27 @@ export const routes: Routes = [
     children: [
       {
         path: 'accueil',
-        loadComponent: () => import('../app/accueil/accueil.component').then(m => m.AccueilComponent),
+        loadComponent: () => import('./features/accueil/accueil.component').then(m => m.AccueilComponent),
       },
       {
         path: 'comptes',
-        loadChildren: () => import('../app/compte/compte-routing'),
+        loadChildren: () => import('./features/compte/compte-routing'),
       },
       {
         path: 'transactions',
         loadChildren: () =>
-          import('./transaction/transaction-routing')
+          import('./features/transaction/transaction-routing')
       },
       {
         path: 'payements',
         loadChildren: () =>
-          import('./payement/payement-routing')
+          import('./features/payement/payement-routing')
       },
       {
         path: 'journale-demandes',
         loadChildren: () =>
           import(
-            './journal-demande/journale-demande-routing'
+            './features/journal-demande/journale-demande-routing'
           )
       },
     ],
